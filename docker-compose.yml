@@ -1,0 +1,8 @@
+version: '2'
+services:
+  norikra:
+    build: ./norikra
+    ports:
+      - "26571:26571"
+      - "26578:26578"
+      - "8778:8778"
