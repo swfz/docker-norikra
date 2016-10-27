@@ -6,3 +6,5 @@ services:
       - "26571:26571"
       - "26578:26578"
       - "8778:8778"
+    volumes:
+      - "./norikra/var/norikra:/var/norikra"

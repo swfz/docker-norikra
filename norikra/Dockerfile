@@ -15,6 +15,7 @@ RUN chgrp norikra /var/log/norikra /etc/norikra /var/run/norikra /var/norikra
 
 EXPOSE 26571 26578 8778
 
+VOLUME ["/var/norikra"]
 ENTRYPOINT ["norikra", "start"]
 CMD ["--dump-stat-interval=60", "--logdir=/var/log/norikra", "--stats=/var/norikra/stats.json" ]
 
