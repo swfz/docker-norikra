@@ -15,5 +15,5 @@ RUN chgrp norikra /var/log/norikra /etc/norikra /var/run/norikra
 
 EXPOSE 26571 26578 8778
 
-ENTRYPOINT [ "norikra", "start", "-l", "/var/log/norikra" ]
+ENTRYPOINT [ "norikra", "start", "-l", "/var/log/norikra", "-s", "/etc/norikra/stats.json" ]
 
