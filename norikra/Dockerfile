@@ -8,12 +8,14 @@ ENV PATH /jruby-9.1.5.0/bin:$PATH
 
 RUN gem install norikra --no-ri --no-rdoc
 
-RUN mkdir -p /var/log/norikra /etc/norikra /var/run/norikra
+RUN mkdir -p /var/log/norikra /etc/norikra /var/run/norikra /var/norikra
 
 RUN groupadd norikra
-RUN chgrp norikra /var/log/norikra /etc/norikra /var/run/norikra
+RUN chgrp norikra /var/log/norikra /etc/norikra /var/run/norikra /var/norikra
 
 EXPOSE 26571 26578 8778
 
-ENTRYPOINT [ "norikra", "start", "-l", "/var/log/norikra", "-s", "/etc/norikra/stats.json" ]
+ENTRYPOINT ["norikra", "start"]
+CMD ["--dump-stat-interval=60", "--logdir=/var/log/norikra", "--stats=/var/norikra/stats.json" ]
+
 
